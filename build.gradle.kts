@@ -10,14 +10,14 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
-    maven("https://papermc.io/repo/repository/maven-public/")
+    //maven("https://papermc.io/repo/repository/maven-public/")
     maven("https://jitpack.io")
     //maven("https://repo.dmulloy2.net/repository/public/")
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
+    //compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT") // if you don't use spigradle, use this
     compileOnly("com.github.spigradle.spigradle:kr.entree.spigradle.base.gradle.plugin:v2.2.3")
     compileOnly(paper("1.16.5"))
     //compileOnly("com.comphenix.protocol:ProtocolLib:4.6.0")
