@@ -25,7 +25,7 @@ dependencies {
 
 spigot {
     authors = listOf("명이")
-    apiVersion = project.property("apiVersion").toString()
+    apiVersion = properties["apiVersion"]
     name = "KotlinPaperTamplate"
     //depends = listOf("ProtocolLib")
     commands {
