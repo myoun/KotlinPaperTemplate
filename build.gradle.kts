@@ -2,7 +2,6 @@ import kr.entree.spigradle.kotlin.paper
 
 plugins {
     kotlin("jvm") version "1.4.10"
-    id("kr.entree.spigradle") version "2.2.3"
 }
 
 group = "org.example"
@@ -10,28 +9,16 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
-    //maven("https://papermc.io/repo/repository/maven-public/")
-    maven("https://jitpack.io")
+    maven("https://papermc.io/repo/repository/maven-public/")
     //maven("https://repo.dmulloy2.net/repository/public/")
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    //compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT") // if you don't use spigradle, use this
-    compileOnly("com.github.spigradle.spigradle:kr.entree.spigradle.base.gradle.plugin:v2.2.3")
-    compileOnly(paper("1.16.5"))
+    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT") // if you don't use spigradle, use this
     //compileOnly("com.comphenix.protocol:ProtocolLib:4.6.0")
 }
 
-spigot {
-    authors = listOf("명이")
-    apiVersion = properties["apiVersion"]
-    name = "KotlinPaperTamplate"
-    //depends = listOf("ProtocolLib")
-    commands {
-        //create("hello")
-    }
-}
 
 val shade = configurations.create("shade")
 shade.extendsFrom(configurations.implementation.get())
