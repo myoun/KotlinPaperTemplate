@@ -1,0 +1,3 @@
+name: ExamplePlugin
+main: org.example.explugin.ExPlugin
+version: 1.0.0
