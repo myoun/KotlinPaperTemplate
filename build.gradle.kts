@@ -35,10 +35,17 @@ tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = "16"
     }
+    
     compileTestKotlin {
         kotlinOptions.jvmTarget = "16"
     }
-
+    
+    processResources {
+        filesMatching("*.yml") {
+            expand(project.properties)
+        }
+    }
+    
     create<Jar>("sourceJar") {
         archiveClassifier.set("source")
         from(sourceSets["main"].allSource)
