@@ -1,7 +1,6 @@
-import kr.entree.spigradle.kotlin.paper
-
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm") version "1.5.0"
+    `maven-publish`
 }
 
 group = "org.example"
@@ -34,10 +33,10 @@ tasks {
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = "16"
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = "16"
     }
 
     create<Jar>("sourceJar") {
@@ -47,5 +46,15 @@ tasks {
 
     jar {
         from (shade.map { if (it.isDirectory) it else zipTree(it) })
+    }
+}
+
+// Add publish code with jitpack
+publishing {
+    publications {
+        create<MavenPublication>(project.name) {
+            artifact(tasks["sourceJar"])
+            from(components["java"])
+        }
     }
 }
