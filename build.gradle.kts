@@ -1,6 +1,5 @@
 plugins {
     kotlin("jvm") version "1.5.0"
-    `maven-publish`
 }
 
 group = "org.example"
@@ -56,12 +55,3 @@ tasks {
     }
 }
 
-// Add publish code with jitpack
-publishing {
-    publications {
-        create<MavenPublication>(project.name) {
-            artifact(tasks["sourceJar"])
-            from(components["java"])
-        }
-    }
-}
