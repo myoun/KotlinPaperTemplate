@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.5.0"
+    kotlin("jvm") version "1.6.0"
 }
 
 group = "org.example"
@@ -12,12 +12,13 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.18-R0.1-SNAPSHOT")
 }
-
 
 val shade = configurations.create("shade")
 shade.extendsFrom(configurations.implementation.get())
+
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 tasks {
 
@@ -30,11 +31,7 @@ tasks {
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = "16"
-    }
-    
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "16"
+        kotlinOptions.jvmTarget = "17"
     }
     
     processResources {
