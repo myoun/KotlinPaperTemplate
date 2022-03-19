@@ -12,9 +12,9 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    compileOnly("io.papermc.paper:paper-api:1.18-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
 }
-
+// Use Library!!!
 val shade = configurations.create("shade")
 shade.extendsFrom(configurations.implementation.get())
 
