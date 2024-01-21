@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "1.9.22"
 }
 
 group = "org.example"
@@ -12,11 +12,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    compileOnly("io.papermc.paper:paper-api:1.18.2-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
 }
-// Use Library!!!
-val shade = configurations.create("shade")
-shade.extendsFrom(configurations.implementation.get())
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
@@ -43,10 +40,6 @@ tasks {
     create<Jar>("sourceJar") {
         archiveClassifier.set("source")
         from(sourceSets["main"].allSource)
-    }
-
-    jar {
-        from (shade.map { if (it.isDirectory) it else zipTree(it) })
     }
 }
 

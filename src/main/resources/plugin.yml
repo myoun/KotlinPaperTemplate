@@ -1,3 +1,6 @@
 name: ExamplePlugin
 main: org.example.explugin.ExPlugin
 version: 1.0.0
+
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib:1.9.22
